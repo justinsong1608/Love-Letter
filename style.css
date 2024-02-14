@@ -1,0 +1,100 @@
+body {
+    background-color: #DEB9CC;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    margin: 0 auto;
+}
+
+.heart {
+    animation: heartbeat 1.5s infinite, glow 2s infinite alternate;
+    position: absolute;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+.letter-closed {
+    display: none;
+    overflow: hidden;
+    transition: max-height 1s ease-in-out;
+    max-height: 0;
+}
+
+.letter-open {
+    display: block;
+    animation: unfold 4s ease-in-out forwards;
+    overflow: hidden;
+    max-height: 0;
+}
+
+#letter {
+    font-family: 'Indie Flower', cursive;
+    background-color: #E6E4D7;
+    max-width: 700px;
+    padding: 0 30px 10px;
+    overflow: auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+#letter::-webkit-scrollbar {
+    display: none;
+}
+
+#letter > p {
+    font-size: 20px;
+}
+
+@keyframes heartMove {
+    0% {
+        top: 50%; 
+    }
+    100% {
+        top: 87%;
+    }
+}
+
+@keyframes heartbeat {
+    0%{
+        transform: scale(1);
+    }
+    15%{
+        transform: scale(1.1);
+    }
+    30%{
+        transform: scale(1);
+    }
+    45%{
+        transform: scale(1.1);
+    }
+    75%{
+        transform: scale(1);
+    }
+}
+
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0 0 5px rgba(255, 128, 128, 0.5));
+    }
+    100% {
+        filter: drop-shadow(0 0 20px rgba(255, 128, 128, 1));
+    }
+}
+
+@keyframes unfold {
+    0% {
+        max-height: 0;
+    }
+    100% {
+        max-height: 80%;
+    }
+}
+
